@@ -9,8 +9,7 @@ const Home = ()=>{
         .then(res=>res.json())
         .then(json=>{setProducts(json)})
     }, [])
-    
-console.log(products)
+    console.log(products)
     return(
         <div>
             <div className='nav-sec'>
@@ -21,20 +20,20 @@ console.log(products)
             <div className="product-box">
 
                 {products.map((productList,index)=>
-                    <div className="product-container">
-                    <div className="product-image">
-                        <img src={productList.image} alt="" />
+                    <div className="product-container" key={productList.id}>
+                        <div className="product-image">
+                            <img src={productList.image} alt="" />
+                        </div>
+                        <div className="product-title">
+                        <p> {productList.title}</p>
+                        </div>
+                        <div className="product-price">
+                            <p>{productList.price}$</p>
+                        </div>
+                        <div className="add-to-cart">
+                            <button>Add to cart</button>
+                        </div>
                     </div>
-                    <div className="product-title">
-                       <p> {productList.title}</p>
-                    </div>
-                    <div className="product-price">
-                        <p>{productList.price}$</p>
-                    </div>
-                    <div className="add-to-cart">
-                        <button>Add to cart</button>
-                    </div>
-                </div>
 
                 )}
 
